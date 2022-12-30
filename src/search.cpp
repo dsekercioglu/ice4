@@ -152,6 +152,7 @@ struct Searcher {
                 }
                 reduction += legals > 3;
                 reduction -= history[board.stm == BLACK][piece][moves[i].to-A1] / 200;
+                reduction -= (killers[ply][0] == moves[i]) || (killers[ply][1] == moves[i]);
                 if (reduction < 0 || victim || in_check) {
                     reduction = 0;
                 }
