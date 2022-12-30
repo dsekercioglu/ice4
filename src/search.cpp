@@ -189,11 +189,11 @@ struct Searcher {
                             continue;
                         }
                         int16_t& hist = history[board.stm == BLACK][board.board[moves[j].from] & 7][moves[j].to-A1];
-                        int change = depth * depth + static_eval < alpha;
+                        int change = depth * depth + (static_eval <= alpha);
                         hist -= change + change * hist / MAX_HIST;
                     }
                     int16_t& hist = history[board.stm == BLACK][board.board[bestmv.from] & 7][bestmv.to-A1];
-                    int change = depth * depth + static_eval < alpha;
+                    int change = depth * depth + (static_eval <= alpha);
                     hist += change - change * hist / MAX_HIST;
                     if (!(killers[ply][0] == bestmv)) {
                         killers[ply][1] = killers[ply][0];
