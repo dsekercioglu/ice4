@@ -41,7 +41,7 @@ struct Searcher {
             if (depth > 0 || board.board[tt.mv.to]) {
                 hashmv = tt.mv;
             }
-            if (tt.depth + 4 < depth) {
+            if (tt.depth + 8 < depth) {
                 depth--;
             }
             if (depth <= tt.depth && (
